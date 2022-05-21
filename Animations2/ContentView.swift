@@ -39,7 +39,12 @@ struct ContentView: View {
         //.animation(.easeInOut(duration: 2), value: animationAmount)
 
         // Wait for a second before executing a two-second animation
-        .animation(.easeInOut(duration: 2).delay(1), value: animationAmount)
+        //.animation(.easeInOut(duration: 2).delay(1), value: animationAmount)
+
+        // Create a one-second animation that will bounce up and down before
+        // reaching its final size
+        .animation(.easeInOut(duration: 1).repeatCount(3, autoreverses: true),
+                   value: animationAmount)
     }
 }
 

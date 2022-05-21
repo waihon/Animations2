@@ -11,6 +11,32 @@ struct ContentView: View {
     @State private var animationAmount = 1.0
 
     var body: some View {
+        VStack {
+            // Since the stepper is bound to $animationAmount.animation(),
+            // SwiftUI will automatically animate its changes.
+            Stepper("Scale amount", value: $animationAmount.animation(), in: 1...10)
+                .padding()
+
+            Spacer()
+
+            Button("Tap Me") {
+                animationAmount += 1
+            }
+            .padding(40)
+            .background(.red)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .scaleEffect(animationAmount)
+
+            Spacer()
+        }
+    }
+}
+
+struct OverlayContentView: View {
+    @State private var animationAmount = 1.0
+
+    var body: some View {
         Button("Tap Me") {
             // Do nothing
         }

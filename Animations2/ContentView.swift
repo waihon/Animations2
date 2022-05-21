@@ -36,7 +36,10 @@ struct ContentView: View {
         //.animation(.interpolatingSpring(stiffness: 50, damping: 2), value: animationAmount)
 
         // Customize the animation with a duration specified as a number of seconds
-        .animation(.easeInOut(duration: 2), value: animationAmount)
+        //.animation(.easeInOut(duration: 2), value: animationAmount)
+
+        // Wait for a second before executing a two-second animation
+        .animation(.easeInOut(duration: 2).delay(1), value: animationAmount)
     }
 }
 

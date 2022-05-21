@@ -17,7 +17,7 @@ struct ContentView: View {
         .frame(width: 200, height: 200)
         .background(enabled ? .blue : .red)
         // Only changes that occur before the animation() get animated
-        .animation(.default, value: enabled)
+        .animation(nil, value: enabled)
         .foregroundColor(.white)
         .clipShape(RoundedRectangle(cornerRadius: enabled ? 60: 0))
         // With multiple animation(), each one controls everything before it

@@ -8,6 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var enabled = false
+
+    var body: some View {
+        Button("Tap Me") {
+            enabled.toggle()
+        }
+        .frame(width: 200, height: 200)
+        .background(enabled ? .blue : .red)
+        .foregroundColor(.white)
+        .animation(.default, value: enabled)
+    }
+}
+
+struct ExplicitAnimationContentView: View {
     @State private var animationAmount = 0.0
 
     var body: some View {

@@ -51,7 +51,11 @@ struct ContentView: View {
         // again, then jump immediately back up to its larger scale.
         // This is because ultimately the button must match the state of
         // our program, regardless of what animations we apply.
-        .animation(.easeInOut(duration: 1).repeatCount(2, autoreverses: true),
+        //.animation(.easeInOut(duration: 1).repeatCount(2, autoreverses: true),
+        //           value: animationAmount)
+
+        // Continuous animations
+        .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true),
                    value: animationAmount)
     }
 }

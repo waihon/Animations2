@@ -19,6 +19,8 @@ struct ContentView: View {
         .foregroundColor(.white)
         .clipShape(Circle())
         .scaleEffect(animationAmount)
+        // The blur radius will start at 0 (no blur)
+        .blur(radius: (animationAmount - 1.0) * 2.0)
         .animation(.default, value: animationAmount)
     }
 }

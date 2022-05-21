@@ -12,6 +12,33 @@ struct ContentView: View {
 
     var body: some View {
         Button("Tap Me") {
+            // Do nothing
+        }
+        .padding(50)
+        .background(.red)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .overlay(
+            Circle()
+                .stroke(.red)
+                .scaleEffect(animationAmount)
+                // When animationAmount is 1 the opacity is 1 (it's opaque)
+                // and when animationAmount is 2 the opacity is 0 (it's transparent)
+                .opacity(2.0 - animationAmount)
+                .animation(.easeInOut(duration: 1.0).repeatForever(autoreverses: false),
+                           value: animationAmount)
+        )
+        .onAppear {
+            animationAmount = 2.0
+        }
+    }
+}
+
+struct AnimationContentView: View {
+    @State private var animationAmount = 1.0
+
+    var body: some View {
+        Button("Tap Me") {
             animationAmount += 0.5  // 50%
         }
         .padding(50)

@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+    }
+}
+
+struct MultipleAnimationContentView: View {
     @State private var enabled = false
 
     var body: some View {
@@ -17,7 +23,7 @@ struct ContentView: View {
         .frame(width: 200, height: 200)
         .background(enabled ? .blue : .red)
         // Only changes that occur before the animation() get animated
-        .animation(nil, value: enabled)
+        .animation(.easeIn, value: enabled)
         .foregroundColor(.white)
         .clipShape(RoundedRectangle(cornerRadius: enabled ? 60: 0))
         // With multiple animation(), each one controls everything before it

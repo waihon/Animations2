@@ -21,6 +21,7 @@ struct ContentView: View {
         .scaleEffect(animationAmount)
         // The blur radius will start at 0 (no blur)
         .blur(radius: (animationAmount - 1.0) * 2.0)
+
         // The default animation in practice is an "ease in, ease out" animation
         //.animation(.default, value: animationAmount)
 
@@ -43,7 +44,14 @@ struct ContentView: View {
 
         // Create a one-second animation that will bounce up and down before
         // reaching its final size
-        .animation(.easeInOut(duration: 1).repeatCount(3, autoreverses: true),
+        //.animation(.easeInOut(duration: 1).repeatCount(3, autoreverses: true),
+        //           value: animationAmount)
+
+        // With repeat count set to 2, the button would scale up then down
+        // again, then jump immediately back up to its larger scale.
+        // This is because ultimately the button must match the state of
+        // our program, regardless of what animations we apply.
+        .animation(.easeInOut(duration: 1).repeatCount(2, autoreverses: true),
                    value: animationAmount)
     }
 }

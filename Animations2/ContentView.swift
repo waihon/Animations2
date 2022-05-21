@@ -21,6 +21,7 @@ struct ContentView: View {
         .scaleEffect(animationAmount)
         // The blur radius will start at 0 (no blur)
         .blur(radius: (animationAmount - 1.0) * 2.0)
+        // The default animation in practice is an "ease in, ease out" animation
         .animation(.default, value: animationAmount)
     }
 }

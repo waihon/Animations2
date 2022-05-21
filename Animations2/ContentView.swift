@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var dragAmount = CGSize.zero
+
     var body: some View {
         LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .frame(width: 300, height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 10))
+            .offset(dragAmount)
+            .gesture(
+                DragGesture()
+                    // translation tells us how far it's moved from the start point
+                    .onChanged { dragAmount = $0.translation }
+                    // Ignore the input and set dragAmount back to zero to return
+                    // the card to its original position
+                    .onEnded { _ in dragAmount = .zero }
+            )
     }
 }
 

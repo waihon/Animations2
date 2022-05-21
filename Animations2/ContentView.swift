@@ -11,10 +11,15 @@ struct ContentView: View {
     @State private var animationAmount = 1.0
 
     var body: some View {
-        VStack {
+        print(animationAmount)
+
+        return VStack {
             // Since the stepper is bound to $animationAmount.animation(),
             // SwiftUI will automatically animate its changes.
-            Stepper("Scale amount", value: $animationAmount.animation(), in: 1...10)
+            Stepper("Scale amount", value: $animationAmount.animation(
+                .easeInOut(duration: 1)
+                .repeatCount(3, autoreverses: true)
+            ), in: 1...10)
                 .padding()
 
             Spacer()

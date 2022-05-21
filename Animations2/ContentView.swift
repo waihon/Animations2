@@ -25,7 +25,13 @@ struct ContentView: View {
         //.animation(.default, value: animationAmount)
         // Change the type of anamiation to .easeOut to make the animation
         // start fast then slow down to a smooth stop.
-        .animation(.easeOut, value: animationAmount)
+        //animation(.easeOut, value: animationAmount)
+        // Spring animations cause the movement to overshoot then return to
+        // its target.
+        // stiffness = Initial velocity when the animation starts
+        // damping = How fast the animation should be "damped" - lower values
+        // cause the spring to bounce back and forth for longer.
+        .animation(.interpolatingSpring(stiffness: 50, damping: 2), value: animationAmount)
     }
 }
 

@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+    }
+}
+
+struct GradientCardContentView: View {
     @State private var dragAmount = CGSize.zero
 
     var body: some View {

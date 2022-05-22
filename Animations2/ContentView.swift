@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+    }
+}
+
+struct DragCharactersContentView: View {
     let letters = Array("Hello SwiftUI")
     @State private var enabled = false
     @State private var dragAmount = CGSize.zero

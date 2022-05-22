@@ -34,6 +34,13 @@ struct ContentView: View {
                 Rectangle()
                     .fill(.red)
                     .frame(width: 200, height: 200)
+                    .transition(
+                        .modifier(
+                            // Rotate from -90 to 0 on its top leading corner
+                            active: CornerRotateModifier(amount: -90, anchor: .topLeading),
+                            identity: CornerRotateModifier(amount: 0, anchor: .topLeading)
+                         )
+                    )
             }
         }
         .onTapGesture {

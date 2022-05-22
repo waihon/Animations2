@@ -21,10 +21,13 @@ struct ContentView: View {
                     .onChanged { dragAmount = $0.translation }
                     // Ignore the input and set dragAmount back to zero to return
                     // the card to its original position
-                    .onEnded { _ in dragAmount = .zero }
+                    .onEnded { _ in
+                        // Explicit animation
+                        withAnimation(.spring()) {
+                            dragAmount = .zero
+                        }
+                    }
             )
-            // Implicit animation
-            .animation(.spring(), value: dragAmount)
     }
 }
 

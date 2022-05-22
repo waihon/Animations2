@@ -20,6 +20,9 @@ struct ContentView: View {
                     .font(.title)
                     .background(enabled ? .blue : .red)
                     .offset(dragAmount)
+                    // Make the first character to have zero delay, and
+                    // subsequent characters more and more delay
+                    .animation(.default.delay(Double(num) / 20.0), value: dragAmount)
             }
         }
     }

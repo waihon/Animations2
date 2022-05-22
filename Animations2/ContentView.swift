@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+    }
+}
+
+struct AsymmetricContentView: View {
     @State private var isShowingRed = false
 
     var body: some View {

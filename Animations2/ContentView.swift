@@ -25,6 +25,14 @@ struct ContentView: View {
                     .animation(.default.delay(Double(num) / 20.0), value: dragAmount)
             }
         }
+        .gesture(
+            DragGesture()
+                .onChanged { dragAmount = $0.translation }
+                .onEnded { _ in
+                    dragAmount = .zero
+                    enabled.toggle()
+                }
+        )
     }
 }
 

@@ -23,6 +23,8 @@ struct ContentView: View {
                     // the card to its original position
                     .onEnded { _ in dragAmount = .zero }
             )
+            // Implicit animation
+            .animation(.spring(), value: dragAmount)
     }
 }
 
